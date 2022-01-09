@@ -16,7 +16,7 @@ import kotlin.math.log
 @FlowPreview
 class MainActivity : AppCompatActivity() {
 
-    val userList= listOf("User1","User2","User3","User4","User5")
+    val userList= listOf("User1","User2","User3","User4","User5","User6")
     val flowUserList = flowOf("User1","User2","User3","User4","User5")
     val ageList= listOf(10,20,30,40,50,60)
 
@@ -89,10 +89,40 @@ class MainActivity : AppCompatActivity() {
 //                .collect {
 //                    Log.d(TAG, "map $it")
 //                }
-//
-//
 //        }
 
+
+//         lifecycleScope.launch(Dispatchers.IO) {
+//            ageList.asFlow()
+//                .onEach {
+//                    delay(100)
+//                }
+//                .flatMapMerge { age->
+//                    userList.asFlow()
+//                        .map {user->
+//                            "User : $user -Age $age"
+//                        }
+//                }
+//                .collect {
+//                    Log.d(TAG, "map $it")
+//                }
+//        }
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            ageList.asFlow()
+                .onEach {
+                    delay(100)
+                }
+                .flatMapLatest { age->
+                    userList.asFlow()
+                        .map {user->
+                            "User : $user -Age $age"
+                        }
+                }
+                .collect {
+                    Log.d(TAG, "map $it")
+                }
+        }
 
     }
 

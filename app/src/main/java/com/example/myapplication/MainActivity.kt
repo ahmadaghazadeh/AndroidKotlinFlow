@@ -25,7 +25,129 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //flowBuilder()
+        // if run in onCreate after backbutton stop this but if run in function run
+//        lifecycleScope.launch(IO) {
+//            simpleFlow().collect {user->
+//                Log.d(TAG, "Flow1 $user")
+//            }
+//        }
+
+//        lifecycleScope.launch(IO) {
+//            ageList.asFlow().filter { age-> age%3==1 }
+//                .collect { age->
+//                    Log.d(TAG, "age : ${age.toString()}")
+//                }
+//
+//        }
+
+
+//        lifecycleScope.launch(IO) {
+//            ageList.asFlow().filter { age-> age%3==1 }
+//                .map{ age->
+//                    "Age: $age"
+//                }
+//                .collect { age->
+//                    Log.d(TAG, "age : ${age}")
+//                }
+//
+//        }
+
+//        lifecycleScope.launch(IO) {
+//            ageList.asFlow()
+//                .take(3)
+//                .collect { age->
+//                    Log.d(TAG, "age : ${age}")
+//                }
+//
+//        }
+
+//        lifecycleScope.launch(IO) {
+//            val sum=ageList.asFlow()
+//                .reduce { a,b->
+//                    a+b
+//                }
+//            Log.d(TAG, "sum : ${sum}")
+//
+//        }
+
+//        lifecycleScope.launch(IO) {
+//            val sum=ageList.asFlow()
+//                .toList()
+//            Log.d(TAG, "sum : ${sum}")
+//
+//        }
+//
+//
+//        lifecycleScope.launch(IO) {
+//            val sum=ageList.asFlow()
+//                .first()
+//            Log.d(TAG, "sum : ${sum}")
+//
+//        }
+
+//        lifecycleScope.launch(IO) {
+//            ageList.asFlow()
+//                .onCompletion {
+//                    Log.d(TAG, "onCompletion")
+//                }
+//                .collect { age->
+//                    Log.d(TAG, "age : ${age}")
+//                }
+//        }
+
+//        lifecycleScope.launch(IO) {
+//            val time = measureTimeMillis { simpleFlow()
+//                .buffer()
+//                .collect { user->
+//                    delay(200)
+//                    Log.d(TAG, "log2 ${user }}")
+//                }
+//            }
+//            Log.d(TAG, "time ${time }}")
+//        }
+
+//        lifecycleScope.launch(IO) {
+//            val time = measureTimeMillis { simpleFlow()
+//                .conflate()
+//                .collect { user->
+//                    delay(1000)
+//                    Log.d(TAG, "log2 ${user }}")
+//                }
+//            }
+//            Log.d(TAG, "time ${time }}")
+//        }
+
+//        lifecycleScope.launch(IO) {
+//            val time = measureTimeMillis { simpleFlow()
+//                .conflate()
+//                .collectLatest { user->
+//                    delay(200)
+//                    Log.d(TAG, "log2 ${user }}")
+//                }
+//            }
+//            Log.d(TAG, "time ${time }}")
+//        }
+
+//        lifecycleScope.launch(IO) {
+//                val users=userList.asFlow()
+//                val ages=ageList.asFlow()
+//
+//            users.zip(ages){age,user->
+//                "User $user, age $age"
+//            }.collect {
+//                Log.d(TAG, "${it }}")
+//            }
+//        }
+//        lifecycleScope.launch(IO) {
+//            val users=userList.asFlow()
+//            val ages=ageList.asFlow()
+//
+//            users.combine(ages){age,user->
+//                "User $user, age $age"
+//            }.collect {
+//                Log.d(TAG, "${it }}")
+//            }
+//        }
 //        lifecycleScope.launch {
 //            simpleFlow().collect { user ->
 //                Log.d(TAG, "Flow1 $user")
